@@ -63,50 +63,61 @@ F4=Cu4-j*Su4;
 
 
 
-Er_E01 = 0.5*(1-(1+j).*F1);
+Er_E01 = 0.5*(1-(1+j).*F1); %Volt
 Er_E02 = 0.5*(1-(1+j).*F2)*Ga;
 Er_E03 = 0.5*(1-(1+j).*F3)*Gb;
 Er_E04 = 0.5*(1-(1+j).*F4)*Ga*Gb;
 
-Etotal=(Er_E01*E01)+(Er_E02*E02)+(Er_E03*E03)+(Er_E04*E04);   %%%oliki entasi pediou 
+Etotal=(Er_E01*E01)+(Er_E02*E02)+(Er_E03*E03)+(Er_E04*E04);   %%% to synoliko pedio ton 4 synistoswn kai tou apey8eias pediou
 
-plot(u1,abs(Er_E01),'gx')
+plot(d1+d2,(20*log10(abs(Etotal))),'gx')        %%%platos
 grid on
 xlabel('Fresnel Parameters')
 ylabel('')
 figure ()
-plot(u1,angle((Er_E01)))
+plot(d1+d2,angle(20*log10(Etotal)))      %%%%fasi
 figure ()
-plot(u1,(10*log10(abs(Er_E01).^2)),'m')
+plot(d2,(20*log10(abs(E01+E02+E03+E04./Etotal))),'m')    %%%apoleies
 hold on
 
-plot(u2,abs(Er_E02),'gx')
-grid on
-xlabel('Fresnel Parameters')
-ylabel('')
-figure ()
-plot(u2,angle((Er_E02)))
-figure ()
-plot(u2,(10*log10(abs(Er_E02).^2)),'m')
-hold on
-
-plot(u3,abs(Er_E03),'gx')
-grid on
-xlabel('Fresnel Parameters')
-ylabel('')
-figure ()
-plot(u3,angle((Er_E03)))
-figure ()
-plot(u3,(10*log10(abs(Er_E03).^2)),'m')
-hold on
-
-
-plot(u4,abs(Er_E04,'gx'))
-grid on
-xlabel('Fresnel Parameters')
-ylabel('')
-figure ()
-plot(u4,angle((Er_E04)))
-figure ()
-plot(u4,(10*log10(abs(Er_E04).^2)),'m')
-hold on
+%%%%%%%%%%%%%%%%%%%%%%%plot ton epimerous simeion%%%%%%%%%%%%%%%%%%%
+% plot(d1+d2,(20*log10(abs(Er_E01))),'gx')
+% grid on
+% xlabel('Fresnel Parameters')
+% ylabel('')
+% figure ()
+% plot(d1+d2,angle(20*log10(Er_E01)))
+% figure ()
+% plot(d1+d2,(20*log10(abs(E01/Etotal)),'m')
+% hold on
+% 
+% plot(d1+d2,(20*log10(abs(Er_E02))),'gx')
+% grid on
+% xlabel('Fresnel Parameters')
+% ylabel('')
+% figure ()
+% plot(d1+d2,angle(20*log10(Er_E02)))
+% figure ()
+% plot(d1+d2,(10*log10(abs(E02/Etotal)),'m')
+% hold on
+% 
+% plot(d1+d2,(20*log10(abs(Er_E03))),'gx')
+% grid on
+% xlabel('Fresnel Parameters')
+% ylabel('')
+% figure ()
+% plot(d1+d2,angle(20*log10(Er_E03)))
+% figure ()
+% plot(d1+d2,(10*log10(abs(E03/Etotal)),'m')
+% hold on
+% 
+% 
+% plot(d1+d2,(20*log10(abs(Er_E04))),'gx'))
+% grid on
+% xlabel('Fresnel Parameters')
+% ylabel('')
+% figure ()
+% plot(d1+d2,angle(20*log10(Er_E04)))
+% figure ()
+% plot(d1+d2,(10*log10(abs(E02/Etotal)),'m')
+% hold on
